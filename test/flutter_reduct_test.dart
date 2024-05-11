@@ -34,7 +34,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: AtomListener(
+        home: AtomListener<int>(
           atom: state,
           listener: (context, value) {
             counter = value;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_reduct/flutter_reduct.dart';
+
 import 'package:reduct/reduct.dart';
+import 'package:flutter_reduct/flutter_reduct.dart';
 
 void main() {
   CounterReducer();
@@ -52,7 +53,7 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: incrementAction,
+        onPressed: incrementAction.call,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),

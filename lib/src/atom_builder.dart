@@ -21,10 +21,10 @@ typedef WidgetBuilder<S> = Widget Function(BuildContext context, S value);
 /// ```
 class AtomBuilder<S> extends BuilderBase<S> {
   const AtomBuilder({
-    super.key,
-    required super.atom,
+    Key? key,
+    required Atom<S> atom,
     required this.builder,
-  });
+  }) : super(key: key, atom: atom);
 
   /// The [builder] function which will be invoked on each widget build.
   /// The [builder] takes the `BuildContext` and current `value` and
@@ -44,9 +44,9 @@ class AtomBuilder<S> extends BuilderBase<S> {
 /// is defined by sub-classes.
 abstract class BuilderBase<S> extends StatefulWidget {
   const BuilderBase({
-    super.key,
+    Key? key,
     required this.atom,
-  });
+  }) : super(key: key);
 
   /// The [atom] that the [BuilderBase] will interact with.
   /// If omitted, [BuilderBase] will automatically perform a lookup using

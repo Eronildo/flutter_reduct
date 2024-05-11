@@ -23,11 +23,11 @@ typedef WidgetListener<S> = void Function(BuildContext context, S value);
 /// ```
 class AtomListener<S> extends ListenerBase<S> {
   const AtomListener({
-    super.key,
-    required super.atom,
-    required super.listener,
+    Key? key,
+    required Atom<S> atom,
+    required WidgetListener<S> listener,
     required this.child,
-  });
+  }) : super(key: key, atom: atom, listener: listener);
 
   /// The widget which will be rendered as a descendant of the
   /// [AtomListener].
@@ -44,10 +44,10 @@ class AtomListener<S> extends ListenerBase<S> {
 /// is defined by sub-classes.
 abstract class ListenerBase<S> extends StatefulWidget {
   const ListenerBase({
-    super.key,
+    Key? key,
     required this.atom,
     required this.listener,
-  });
+  }) : super(key: key);
 
   /// The [atom] whose `value` will be listened to.
   /// Whenever the [atom]'s `value` changes, [listener] will be invoked.
